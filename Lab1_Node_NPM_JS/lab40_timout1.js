@@ -1,0 +1,5 @@
+console.log("start")
+setTimeout(() => {console.log("job1 finished")},2000)
+setTimeout(() => {console.log("job2 finished")},3000)
+setTimeout(() => {console.log("job3 finished")},4000)
+console.log("end")
