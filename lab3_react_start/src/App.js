@@ -5,10 +5,13 @@ import Dashboard1 from './components/Dashboard1';
 import Dashboard2 from './components/Dashboard2';
 import Person from './components/Person';
 import Pet from './components/Pet';
+import Counter from './components/Counter';
+
 
 function App() {
   return (
     <div className="App">
+    <Counter step="2"/>
     <Dashboard1/>
     <Dashboard2/>
     <Person name = "Hao" age = "43"/>
