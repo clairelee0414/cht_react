@@ -16,11 +16,11 @@ class App extends Component {
     ],
   };
 
-  changeNameHandler = () => {
+  changeNameHandler = (leaderName) => {
     console.log("change button clicked");
     this.setState({
       persons: [
-        { name: "super man", age: 45 },
+        { name: leaderName, age: 45 },
         { name: "Caption America", age: 35 },
         { name: "Thor", age: 200 },
       ],
@@ -36,9 +36,11 @@ class App extends Component {
         }
         <Dashboard1 />
         <Dashboard2 />
-        <button onClick={this.changeNameHandler}>change</button>
+        <button onClick={() => this.changeNameHandler("one punch man")}>
+          change
+        </button>
         <Person
-          clickCallback={this.changeNameHandler}
+          clickCallback={this.changeNameHandler.bind(this, "Peter")}
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
         />
