@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from "react";
 
- const Person=props =>{
-    return ( 
+const Person = (props) => {
+  const [xxx, yyy] = useState({
+    publisher: "Marvel University",
+    studio: "Disney",
+  });
+  const switchVenderHandler = () => {
+    yyy({ publisher: "DC Universe", studio: xxx.studio });
+  };
+  const show = () => {
+    console.log(xxx);
+  };
+  return (
     <div>
-    <p>I am {props.name}</p>
-    <p>I am {props.age}, {Math.floor(Math.random() *5)}</p>
-    <p style={{color:"red"}}>My job is {props.children}</p>
+      <button onClick={switchVenderHandler}>Change!</button>
+      <button onClick={show}>show!</button>
+      <h1>{xxx.publisher}</h1>
+      <p onClick={props.chickCallback}>I am {props.name}</p>
+      <p>I am {props.age} years old,</p>
+      <p>I am the {Math.floor(Math.random() * 5)} th generation</p>
+      <p style={{ color: "red" }}>My job function is {props.children}</p>
     </div>
-    )
-}
+  );
+};
 
-export default Person
+export default Person;

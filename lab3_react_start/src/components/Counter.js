@@ -5,6 +5,7 @@ export default class Counter extends Component {
     super(props);
 
     this.state = {
+      msg:"counter=",
       count: 0,
     };
   }
@@ -39,7 +40,7 @@ export default class Counter extends Component {
   render() {
     return (
       <div>
-        <h2>counter={this.state.count}</h2>
+        <h2>{this.msg}={this.state.count}</h2>
         <button onClick={this.clickHandler}>click</button>
         <button onClick={this.clickHandler10}>10x click</button>
       </div>

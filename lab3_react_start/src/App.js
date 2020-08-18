@@ -31,10 +31,14 @@ class App extends Component {
     return (
       <div className="App">
         <Counter step="2" />
+        {
+          // can
+        }
         <Dashboard1 />
         <Dashboard2 />
         <button onClick={this.changeNameHandler}>change</button>
         <Person
+          clickCallback={this.changeNameHandler}
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
         />
