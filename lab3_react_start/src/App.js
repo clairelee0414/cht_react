@@ -6,14 +6,19 @@ import Dashboard2 from "./components/Dashboard2";
 import Person from "./components/Person";
 import Pet from "./components/Pet";
 import Counter from "./components/Counter";
+import Banner from "./components/Banner";
 
 class App extends Component {
+  titleChangeListener = (event) => {
+    this.setState({ title: event.target.value });
+  };
   state = {
     persons: [
       { name: "Hao", age: 43 },
       { name: "Tim", age: 33 },
       { name: "Claire", age: 40 },
     ],
+    title: "Hello React chtti302",
   };
 
   changeNameHandler = (leaderName) => {
@@ -31,9 +36,8 @@ class App extends Component {
     return (
       <div className="App">
         <Counter step="2" />
-        {
-          // can
-        }
+        <h1>{this.state.title}</h1>
+        <Banner clickCallback={this.titleChangeListener} name ={this.state.title}/>
         <Dashboard1 />
         <Dashboard2 />
         <button onClick={() => this.changeNameHandler("one punch man")}>
