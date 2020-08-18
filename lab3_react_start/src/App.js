@@ -33,14 +33,24 @@ class App extends Component {
   };
 
   render() {
+    const style = {
+      backgroud: "yellow",
+      font: "inherit",
+      border: "2px solid red",
+      padding: "4 px",
+      cursoe: "pointer",
+    };
     return (
       <div className="App">
         <Counter step="2" />
         <h1>{this.state.title}</h1>
-        <Banner clickCallback={this.titleChangeListener} name ={this.state.title}/>
+        <Banner
+          clickCallback={this.titleChangeListener}
+          name={this.state.title}
+        />
         <Dashboard1 />
         <Dashboard2 />
-        <button onClick={() => this.changeNameHandler("one punch man")}>
+        <button style={style} onClick={() => this.changeNameHandler("one punch man")}>
           change
         </button>
         <Person
