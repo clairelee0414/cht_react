@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Person.css"
 
 const Person = (props) => {
   const [xxx, yyy] = useState({
@@ -12,7 +13,7 @@ const Person = (props) => {
     console.log(xxx);
   };
   return (
-    <div>
+    <div className="Person">
       <button onClick={switchVenderHandler}>Change!</button>
       <button onClick={show}>show!</button>
       <h1>{xxx.publisher}</h1>
