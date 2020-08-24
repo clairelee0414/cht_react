@@ -10,9 +10,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class Project {
-    public Project(Long id, String projectName) {
-        this.id = id;
+    public Project(String projectName, String projectIdentifier) {
         this.projectName = projectName;
+        this.projectIdentifier = projectIdentifier;
     }
 
     @Id
