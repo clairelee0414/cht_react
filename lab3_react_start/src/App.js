@@ -45,7 +45,28 @@ class App extends Component {
       padding: "4 px",
       cursoe: "pointer",
     };
-
+    let persons = null;
+    if (this.state.showPersons ===true){
+      persons =           <div>
+      <Person
+        clickCallback={this.changeNameHandler.bind(this, "Peter")}
+        name={this.state.persons[0].name}
+        age={this.state.persons[0].age}
+      />
+      <Pet name="king" species="cat" />
+      <Person
+        name={this.state.persons[1].name}
+        age={this.state.persons[1].age}
+      >
+        Team leader
+      </Person>
+      <Person
+        name={this.state.persons[2].name}
+        age={this.state.persons[2].age}
+      />
+      <Pet />
+    </div>
+    }
     return (
       <div className="App">
         <Counter step="2" />
@@ -65,27 +86,7 @@ class App extends Component {
         >
           change
         </button>
-        {this.state.showPersons === true ? (
-          <div>
-            <Person
-              clickCallback={this.changeNameHandler.bind(this, "Peter")}
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-            />
-            <Pet name="king" species="cat" />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-            >
-              Team leader
-            </Person>
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-            />
-            <Pet />
-          </div>
-        ) : null}
+        {persons}
       </div>
     );
   }
