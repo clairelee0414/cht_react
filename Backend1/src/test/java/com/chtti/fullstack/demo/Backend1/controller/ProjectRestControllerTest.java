@@ -28,7 +28,7 @@ public class ProjectRestControllerTest {
     @Test
     public void addProjectSuccess() {
         Project project = new Project();
-        project.setProjectIdentifier("ABC1234");
+        project.setProjectIdentifier("project-1");
         project.setDescription("Hi this is my first project");
         project.setProjectName("Demo Project1");
         ResponseEntity<String> response =
@@ -42,7 +42,7 @@ public class ProjectRestControllerTest {
     @Test
     public void getAllProject() {
         Project project = new Project();
-        project.setProjectIdentifier("ABC1234");
+        project.setProjectIdentifier("project-2");
         project.setDescription("Hi this is my first project");
         project.setProjectName("Demo Project1");
         String localURL = String.format("http://localhost:%d/api/project", port);
@@ -62,7 +62,7 @@ public class ProjectRestControllerTest {
     @Test
     public void addProjectMissingName() {
         Project project = new Project();
-        project.setProjectIdentifier("ABC1234");
+        project.setProjectIdentifier("project-3");
         project.setDescription("Hi this is my first project");
         //project.setProjectName("Demo Project1");
         ResponseEntity<Map> response =
@@ -78,7 +78,7 @@ public class ProjectRestControllerTest {
     @Test
     public void addProjectDuplicateId() {
         Project project = new Project();
-        project.setProjectIdentifier("ABC1234");
+        project.setProjectIdentifier("project-4");
         project.setDescription("Hi this is my first project");
         project.setProjectName("Demo Project1");
         ResponseEntity<Map> response =
@@ -98,7 +98,7 @@ public class ProjectRestControllerTest {
 
     @Test
     public void getProjectByIdentifier() {
-        String projectIdentifier = "AAA-1234";
+        String projectIdentifier = "project-5";
         Project project = new Project();
         project.setProjectIdentifier(projectIdentifier);
         project.setDescription("Hi this is my first project");
@@ -113,7 +113,7 @@ public class ProjectRestControllerTest {
                         Project.class);
         Project getBackProject = response2.getBody();
         MediaType contentType = response2.getHeaders().getContentType();
-        assertEquals(getBackProject.getProjectIdentifier(), projectIdentifier);
+        assertEquals(getBackProject.getProjectIdentifier(), projectIdentifier.toUpperCase());
         assertThat(contentType).isEqualByComparingTo(MediaType.APPLICATION_JSON);
         assertThat(response2.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
     }
